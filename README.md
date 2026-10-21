@@ -1,12 +1,16 @@
 # Source-Grounded Related Work
 
-版本：v0.1.0。
+版本：v0.1.1。
 
-[下载单技能ZIP](https://github.com/GauntWheelCake/source-grounded-related-work-skill/releases/tag/v0.1.0)
+[下载单技能ZIP](https://github.com/GauntWheelCake/source-grounded-related-work-skill/releases/tag/v0.1.1)
 
-逐句溯源撰写论文的Related Work：从核心论文Introduction提取1–3句压缩成背景，
+适用于所有学科论文中，介绍一个相关研究方向的Related Work小段落。
+每个小段落按同一写法逐句溯源：从核心论文Introduction提取1–3句压缩成背景，
 补齐至少6篇高质量引用；每篇代表性工作从Abstract/Introduction选1–2句缩写为一句；
 最后用1–2句归纳有依据的research gap。
+
+研究方向、专业术语和核心文献由当前论文决定；支持工程、自然科学、社会科学等领域。
+默认处理一个小段落或其中一句，只有用户明确要求时才扩展到多个段落或完整章节。
 
 这是一份纯文本Agent Skill，不绑定特定模型、浏览器、API或MCP。联网查文献、读取PDF等能力由使用它的环境提供。
 默认中文解释、英文正文、在会话中逐句交付；本次用户要求可以覆盖默认设置。
@@ -33,12 +37,12 @@ tests/
 ## 使用示例
 
 ```text
-使用 source-grounded-related-work，帮我写“Serverless Workflow Orchestration”的背景第一句。
+使用 source-grounded-related-work，帮我写“课堂同伴讨论”这个研究方向的背景第一句。
 先从我提供的几篇核心论文Introduction选原句，再压缩综合；只在会话中输出。
 ```
 
 ```text
-继续处理AQUATOPE：从Abstract和Introduction选1–2句自身方法介绍，
+继续介绍我给出的第二篇核心论文：从Abstract和Introduction选1–2句自身方法或研究设计的介绍，
 缩写为一句，给出原文定位、取舍说明和LaTeX。保留现有citation key。
 ```
 
@@ -70,8 +74,8 @@ WorkBuddy市场提交可能需要额外字段；这份通用包不等于已通�
 
 ## 验证与已知限制
 
-格式检查及背景改写、方法缩写、固定正文补引用、候选gap、来源缺失处理、请求范围控制六类行为场景通过，
-具体测试结果见[验证记录](tests/results.md)。这些测试只覆盖本环境；
+格式校验通过。v0.1.0完成背景改写、方法缩写、固定正文补引用、候选gap、来源缺失处理、请求范围控制六类行为测试；
+v0.1.1新增教育研究领域的小段落测试并通过。具体结果见[验证记录](tests/results.md)。这些测试只覆盖本环境；
 Claude Code、Claude网页和WorkBuddy的实际导入及执行尚待各端实测。
 技能不会凭空提供论文访问权限或分区数据库，也不会将检索摘要当作已读全文。
 
